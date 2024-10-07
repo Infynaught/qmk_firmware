@@ -1,6 +1,6 @@
-# itstleo9
+# infynaught
 
-Handwired 4x3 macropad built with RP2040 compatible microcontrollers
+4x3 macropad built with RP2040 compatible microcontrollers
 
 * Keyboard Maintainer: [infynaught](https://github.com/infynaught)
 * Hardware Supported: RP2040
