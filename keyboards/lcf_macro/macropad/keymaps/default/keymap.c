@@ -3,10 +3,10 @@
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT(
-      LT(1,KC_MUTE),        KC_F,
-      KC_A, KC_T, KC_C, KC_F,
-      KC_7, KC_8, KC_9, KC_D,
-      KC_4, KC_5, KC_6, KC_E
+      LT(1,KC_F),        KC_MUTE,
+      KC_1, KC_2, KC_3, KC_4,
+      KC_Q, KC_UP, KC_E, KC_5,
+      KC_LEFT, KC_DOWN, KC_RIGHT, KC_6
   ),
   [1] = LAYOUT(
       _______,            _______,
@@ -25,6 +25,16 @@ bool oled_task_user(void) {
 }
 #endif
 
+bool encoder_update_user(uint8_t index, bool clockwise) {
+    if (index == 0) { /* First encoder */
+        if (clockwise) {
+            tap_code(KC_KP_PLUS);
+        } else {
+            tap_code(KC_KP_MINUS);
+        }
+    } 
+    return false;
+}
 
 bool oled_task_user() {
     static const char image[] PROGMEM = {
