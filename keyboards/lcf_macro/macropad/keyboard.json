@@ -43,14 +43,14 @@
     "matrix_pins": {
         "direct": [
             ["GP0", null, null, "GP1"],
-            ["GP4", "GP5", "GP6", "GP7"],
-            ["GP8", "GP9", "GP10", "GP11"],
-            ["GP12", "GP13", "GP14", "GP15"]
+            ["GP4", "GP7", "GP10", "GP13"],
+            ["GP5", "GP8", "GP11", "GP14"],
+            ["GP6", "GP9", "GP12", "GP15"]
         ]
     },
     "encoder": {
         "rotary": [
-            {"pin_a": "GP26", "pin_b": "GP27"}
+            {"pin_a": "GP27", "pin_b": "GP26"}
         ]
     }
 }

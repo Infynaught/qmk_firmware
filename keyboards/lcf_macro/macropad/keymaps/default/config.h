@@ -1,5 +1,5 @@
-#define ENCODER_A_PINS { GP26 }
-#define ENCODER_B_PINS { GP27 }
+#define ENCODER_A_PINS { GP27 }
+#define ENCODER_B_PINS { GP26 }
 #define ENCODER_RESOLUTION 4
 
 #define OLED_BRIGHTNESS 128
