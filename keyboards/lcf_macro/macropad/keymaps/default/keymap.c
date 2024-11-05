@@ -1,5 +1,6 @@
 #include QMK_KEYBOARD_H
-//#define oled_enable
+#define oled_enable
+//#define oled_logo_enable
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT(
@@ -19,9 +20,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #ifdef oled_enable
 bool oled_task_user(void) {
     oled_set_cursor(0,1);
+    if (layer_state_is(0)){
+            oled_write("NumPad Layer    ",false);
+            return false;
+    }
+    else {
+            oled_write("Function Layer    ",false);
+            return false;
+    }
 
-    oled_write("Hello World ",false);
-    return false;
 }
 #endif
 
@@ -46,7 +53,7 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
     return false;
 }
 
-
+#ifdef Oled_logo_enable
 bool oled_task_user() {
     static const char image[] PROGMEM = {
     0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
@@ -119,3 +126,4 @@ bool oled_task_user() {
 
     return false;
 }
+#endif
