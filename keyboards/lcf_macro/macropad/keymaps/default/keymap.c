@@ -10,22 +10,32 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_7, KC_8, KC_9, KC_MPLY
   ),
   [1] = LAYOUT(
-      TO(0),        KC_F14,
+      TO(2),        KC_F14,
       KC_F1, KC_F2, KC_F3, KC_F4,
       KC_F5, KC_F6, KC_F7, KC_F8,
       KC_F9, KC_F10, KC_F11, KC_F12
   ),
+  [2] = LAYOUT(
+      TO(0),        KC_L,
+      KC_Q, KC_W, KC_E, KC_R,
+      KC_A, KC_S, KC_D, KC_F,
+      KC_Z, KC_X, KC_C, KC_V
+  )
 };
 
 #ifdef oled_enable
 bool oled_task_user(void) {
     oled_set_cursor(0,1);
     if (layer_state_is(0)){
-            oled_write("NumPad Layer    ",false);
+            oled_write("NumPad Layer: 1    ",false);
+            return false;
+    }
+    else if (layer_state_is(1)){
+            oled_write("Function Layer: 2    ",false);
             return false;
     }
     else {
-            oled_write("Function Layer    ",false);
+            oled_write("Macro Layer: 3    ",false);
             return false;
     }
 
@@ -41,11 +51,21 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
         } else {
             tap_code(KC_VOLD);
         }
-        }else {
+        }
+        
+        else if (layer_state_is(1)){
             if (clockwise) {
             tap_code(KC_MINUS);
         } else {
             tap_code(KC_EQL);
+        }
+        }
+
+        else {
+            if (clockwise) {
+            tap_code(KC_DOT);
+        } else {
+            tap_code(KC_COMMA);
         }
         }
         }
