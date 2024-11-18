@@ -18,7 +18,7 @@ See the [build environment setup](https://docs.qmk.fm/#/getting_started_build_to
 
 ## Direct pin RP2040 
 
-"GP2",  null,   null,   "GP3"
+"GP0",  null,   null,   "GP1"
 "GP4",  "GP5",  "GP6",  "GP7"
 "GP8",  "GP9",  "GP10", "GP11"
 "GP12", "GP13", "GP14", "GP15"
