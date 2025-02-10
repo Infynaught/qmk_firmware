@@ -55,17 +55,17 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
         
         else if (layer_state_is(1)){
             if (clockwise) {
-            tap_code(KC_MINUS);
+            tap_code(KC_RIGHT);
         } else {
-            tap_code(KC_EQL);
+            tap_code(KC_LEFT);
         }
         }
 
         else {
             if (clockwise) {
-            tap_code(KC_DOT);
+            tap_code(KC_MINUS);
         } else {
-            tap_code(KC_COMMA);
+            tap_code(KC_EQL);
         }
         }
         }
